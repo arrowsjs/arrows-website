@@ -14,6 +14,7 @@ function displayPage(results, rangeLeft, rangeRight, count) {
 }
 
 var cache = {};
+var baseUrl = 'https://arrowsjs.io:8080';
 
 function ajaxOrCached(query, page, handler) {
     if ([query, page] in cache) {
@@ -21,7 +22,7 @@ function ajaxOrCached(query, page, handler) {
     }
 
     $.ajax({
-        'url'     : 'http://arrows.eric-fritz.com:8080?q=' + query + '&page=' + page,
+        'url'     : baseUrl + '?q=' + query + '&page=' + page,
         'dataType': 'json',
         'success' : result => {
             cache[[query, page]] = result;

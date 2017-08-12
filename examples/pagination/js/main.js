@@ -4,6 +4,7 @@
 // Caching
 
 const cache = {};
+const baseUrl = 'https://arrowsjs.io:8080';
 
 const lookup = new LiftedArrow(key => {
     /* @arrow :: 'a ~> 'b \ ({}, { 'a }) */
@@ -26,7 +27,7 @@ const ajax = new AjaxArrow((query, page) => {
     /* @conf :: (String, Number)
      * @resp :: {query: String, prev: Number, next: Number, results: [{id: Number, name: String, category: String, sub_category: String, price_per_unit: Number, margin: Number}], rangeLeft: Number, rangeRight: Number, count: Number} */
     return {
-        'url'     : 'http://arrows.eric-fritz.com:8080?q=' + query + '&page=' + page,
+        'url'     : baseUrl + '?q=' + query + '&page=' + page,
         'dataType': 'json'
     };
 });
