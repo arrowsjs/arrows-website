@@ -129,9 +129,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	loadDB()
+	http.HandleFunc("/", handler)
 
 	fmt.Printf("Listening on port 8080.\n")
-
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	fmt.Printf("Error: %s\n", http.ListenAndServeTLS(
+		":8080",
+		"/etc/letsencrypt/live/arrowsjs.io/fullchain.pem",
+		"/etc/letsencrypt/live/arrowsjs.io/privkey.pem",
+		nil,
+	))
 }
