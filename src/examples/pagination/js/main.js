@@ -24,8 +24,10 @@ const store = new LiftedArrow((key, value) => {
 // Ajax Request
 
 const ajax = new AjaxArrow((query, page) => {
-    /* @conf :: (String, Number)
-     * @resp :: {query: String, prev: Number, next: Number, results: [{id: Number, name: String, category: String, sub_category: String, price_per_unit: Number, margin: Number}], rangeLeft: Number, rangeRight: Number, count: Number} */
+    /*
+     * @conf :: (String, Number)
+     * @resp :: {query: String, prev: Number, next: Number, results: [{id: Number, name: String, category: String, sub_category: String, price_per_unit: Number, margin: Number}], rangeLeft: Number, rangeRight: Number, count: Number}
+     */
     return {
         'url'     : baseUrl + '?q=' + query + '&page=' + page,
         'dataType': 'json'
@@ -40,7 +42,9 @@ const ajaxOrCached = lookup.catch(
 // Ajax Result Handling
 
 const handle = new LiftedArrow((results, rangeLeft, rangeRight, count) => {
-    /* @arrow :: ([{id: Number, name: String, category: String, sub_category: String, price_per_unit: Number, margin: Number}], Number, Number, Number) ~> _ */
+    /*
+     * @arrow :: ([{id: Number, name: String, category: String, sub_category: String, price_per_unit: Number, margin: Number}], Number, Number, Number) ~> _
+     */
     $('#results tbody').empty();
 
     $('#meta').text('Displaying ' + rangeLeft + '-' + rangeRight + ' of ' + count);
@@ -58,30 +62,30 @@ const handle = new LiftedArrow((results, rangeLeft, rangeRight, count) => {
 //
 // Data Routing
 
-const getVal = new LiftedArrow((elem, event) =>
+const getVal = new LiftedArrow((elem, event) => {
     /* @arrow :: (Elem, Event) ~> String */
-    $(elem).val()
-);
+    return $(elem).val()
+});
 
-const extractQuery = new LiftedArrow(x =>
+const extractQuery = new LiftedArrow(x => {
     /* @arrow :: {query: String} ~> String */
-    x.query
-);
+    return x.query
+    );
 
-const extractPrev = new LiftedArrow(x =>
+const extractPrev = new LiftedArrow(x => {
     /* @arrow :: {prev: Number} ~> Number */
-    x.prev
-);
+    return x.prev
+    );
 
-const extractNext = new LiftedArrow(x =>
+const extractNext = new LiftedArrow(x => {
     /* @arrow :: {next: Number} ~> Number */
-    x.next
-);
+    return x.next
+    );
 
-const extractResults = new LiftedArrow(x =>
+const extractResults = new LiftedArrow(x => {
     /* @arrow :: {results: [{id: Number, name: String, category: String, sub_category: String, price_per_unit: Number, margin: Number}], rangeLeft: Number, rangeRight: Number, count: Number} ~> ([{id: Number, name: String, category: String, sub_category: String, price_per_unit: Number, margin: Number}], Number, Number, Number) */
-    [x.results, x.rangeLeft, x.rangeRight, x.count]
-);
+    return [x.results, x.rangeLeft, x.rangeRight, x.count]
+    );
 
 //
 // Arrow Composition
