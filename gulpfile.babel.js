@@ -17,7 +17,7 @@ const paths = {
 
 gulp.task('vendor', () => {
   return download(paths.vendor)
-    .pipe(gulp.dest('.public/js'));
+    .pipe(gulp.dest('./public/js'));
 });
 
 gulp.task('minify-html', () => {
