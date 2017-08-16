@@ -64,28 +64,28 @@ const handle = new LiftedArrow((results, rangeLeft, rangeRight, count) => {
 
 const getVal = new LiftedArrow((elem, event) => {
     /* @arrow :: (Elem, Event) ~> String */
-    return $(elem).val()
+    return $(elem).val();
 });
 
 const extractQuery = new LiftedArrow(x => {
     /* @arrow :: {query: String} ~> String */
-    return x.query
-    );
+    return x.query;
+});
 
 const extractPrev = new LiftedArrow(x => {
     /* @arrow :: {prev: Number} ~> Number */
-    return x.prev
-    );
+    return x.prev;
+});
 
 const extractNext = new LiftedArrow(x => {
     /* @arrow :: {next: Number} ~> Number */
-    return x.next
-    );
+    return x.next;
+});
 
 const extractResults = new LiftedArrow(x => {
     /* @arrow :: {results: [{id: Number, name: String, category: String, sub_category: String, price_per_unit: Number, margin: Number}], rangeLeft: Number, rangeRight: Number, count: Number} ~> ([{id: Number, name: String, category: String, sub_category: String, price_per_unit: Number, margin: Number}], Number, Number, Number) */
-    return [x.results, x.rangeLeft, x.rangeRight, x.count]
-    );
+    return [x.results, x.rangeLeft, x.rangeRight, x.count];
+});
 
 //
 // Arrow Composition
