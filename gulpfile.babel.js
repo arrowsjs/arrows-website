@@ -9,9 +9,9 @@ import uglify from 'gulp-uglify'
 
 const paths = {
   vendor: [
-    'https://github.com/efritz/arrows/releases/download/0.3/arrows.js',
-    'https://github.com/efritz/arrows/releases/download/0.3/arrows.es5.js',
-    'https://github.com/efritz/arrows/releases/download/0.3/arrows.min.js'
+    'https://github.com/efritz/arrows/releases/download/0.4/arrows.js',
+    'https://github.com/efritz/arrows/releases/download/0.4/arrows.es5.js',
+    'https://github.com/efritz/arrows/releases/download/0.4/arrows.min.js'
   ]
 };
 
