@@ -35,7 +35,11 @@ gulp.task('minify-js', () => {
     .pipe(babel({
       presets: ['@babel/env']
     }))
-    .pipe(uglify())
+    .pipe(uglify({
+      output: {
+        comments: true,
+      },
+    }))
     .pipe(gulp.dest('./public'));
 });
 
