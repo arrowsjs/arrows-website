@@ -1,17 +1,15 @@
-import gulp from 'gulp'
-import runSequence from 'run-sequence'
 import babel from 'gulp-babel'
 import cleancss from 'gulp-clean-css'
 import download from 'gulp-download'
+import gulp from 'gulp'
 import htmlmin from 'gulp-htmlmin'
-import shell from 'gulp-shell'
 import uglify from 'gulp-uglify'
 
 const paths = {
   vendor: [
-    'https://github.com/efritz/arrows/releases/download/0.4/arrows.js',
-    'https://github.com/efritz/arrows/releases/download/0.4/arrows.es5.js',
-    'https://github.com/efritz/arrows/releases/download/0.4/arrows.min.js'
+    'https://github.com/efritz/arrows/releases/download/0.5/arrows.js',
+    'https://github.com/efritz/arrows/releases/download/0.5/arrows.es5.js',
+    'https://github.com/efritz/arrows/releases/download/0.5/arrows.min.js'
   ]
 };
 
@@ -35,13 +33,9 @@ gulp.task('minify-html', () => {
 gulp.task('minify-js', () => {
   return gulp.src('src/**/*.js')
     .pipe(babel({
-      presets: ['env']
+      presets: ['@babel/env']
     }))
-    .pipe(uglify({
-      output: {
-        comments: true,
-      },
-    }))
+    .pipe(uglify())
     .pipe(gulp.dest('./public'));
 });
 
@@ -51,9 +45,9 @@ gulp.task('minify-css', () => {
     .pipe(gulp.dest('./public'));
 });
 
-gulp.task('build', callback => {
-  runSequence(
-    ['vendor', 'minify-html', 'minify-js', 'minify-css'],
-    callback,
-  );
-});
+gulp.task('build', gulp.parallel(
+  'vendor',
+  'minify-html',
+  'minify-js',
+  'minify-css',
+));
