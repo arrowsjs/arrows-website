@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <title>Sorting</title>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sorting</title>
 
-        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 
-        <style type="text/css">
-            body {
-                padding: 20px;
-                text-align: center;
-            }
+    <style type="text/css">
+      body {
+        padding: 20px;
+        text-align: center;
+      }
 
-            #sort-div {
-                position: relative;
-                margin: auto;
-                text-align: center;
-                width: 250px;
-                margin-top: 20px;
-            }
+      #sort-div {
+        position: relative;
+        margin: auto;
+        text-align: center;
+        width: 250px;
+        margin-top: 20px;
+      }
 
-            #sort-div div {
-                width: 0;
-                top: 0;
-                left: 0;
-                height: 8px;
-                background: blue;
-                font-size: 8px;
-                position: absolute;
-            }
+      #sort-div div {
+        width: 0;
+        top: 0;
+        left: 0;
+        height: 8px;
+        background: blue;
+        font-size: 8px;
+        position: absolute;
+      }
 
-            #sort-div div.looking {
-                background-color: green;
-            }
+      #sort-div div.looking {
+        background-color: green;
+      }
 
-            #sort-div div.swapping {
-                background-color: red;
-            }
+      #sort-div div.swapping {
+        background-color: red;
+      }
 
-            .btn-secondary {
-                background-color: white;
-                border: 1px solid #dbdbdb;
-            }
-        </style>
-    </head>
+      .btn-secondary {
+        background-color: white;
+        border: 1px solid #dbdbdb;
+      }
+    </style>
+  </head>
 
-    <body>
-        <button type="button" id="shuffle" class="btn btn-secondary">Shuffle</button>
-        <button type="button" id="sort" class="btn btn-primary">Sort</button>
+  <body>
+    <button type="button" id="shuffle" class="btn btn-secondary">Shuffle</button>
+    <button type="button" id="sort" class="btn btn-primary">Sort</button>
 
-        <div id="sort-div"></div>
+    <div id="sort-div"></div>
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-        <script type="text/javascript" src="https://arrowsjs.io/js/arrows.min.js"></script>
-        <script type="text/javascript" src="js/common.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-    </body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="https://arrowsjs.io/js/arrows.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
 </html>
