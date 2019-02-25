@@ -4,7 +4,7 @@
 // Caching
 
 const cache = {};
-const baseUrl = 'https://arrowsjs.io:8080';
+const baseUrl = 'https://pagination-server.arrowsjs.io/';
 
 const lookup = new LiftedArrow(key => {
     /* @arrow :: 'a ~> 'b \ ({}, { 'a }) */

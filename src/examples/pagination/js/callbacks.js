@@ -14,7 +14,7 @@ function displayPage(results, rangeLeft, rangeRight, count) {
 }
 
 var cache = {};
-var baseUrl = 'https://arrowsjs.io:8080';
+var baseUrl = 'https://pagination-server.arrowsjs.io/';
 
 function ajaxOrCached(query, page, handler) {
     if ([query, page] in cache) {
